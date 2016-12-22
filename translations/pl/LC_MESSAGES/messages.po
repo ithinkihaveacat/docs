@@ -26,13 +26,21 @@ msgstr ""
 msgid "Contribute"
 msgstr ""
 
+#: /content/includes/guides.yaml
+msgid "Debug"
+msgstr ""
+
+#: /content/includes/guides.yaml
+msgid "Deploy"
+msgstr ""
+
+#: /content/includes/guides.yaml
+msgid "Develop"
+msgstr ""
+
 #: /content/docs /content/includes/menu.yaml
 msgid "Docs"
 msgstr "Dokumentacja"
-
-#: /content/docs/guides
-msgid "Documentation"
-msgstr ""
 
 #: /content/includes/menu.yaml
 msgid "Examples"
@@ -59,7 +67,7 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
-#: /content/includes/menu.yaml
+#: /content/includes/menu.yaml /content/docs/guides
 msgid "Guides"
 msgstr ""
 
