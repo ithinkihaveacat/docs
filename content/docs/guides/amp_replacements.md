@@ -1,6 +1,7 @@
 ---
 $title: Include Images & Video
 $order: 1
+$category: 0
 ---
 
 [TOC]

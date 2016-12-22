@@ -1,6 +1,7 @@
 ---
 $title: Styling & Layout
 $order: 0
+$category: 0
 ---
 [TOC]
 

@@ -79,6 +79,12 @@ amp-sidebar nav {
           list-style: none;
           margin: 0;
 
+          &.category {
+            margin-left: 0;
+            margin-top: 0;
+            color: #333;
+          }
+
           a {
             padding: 6px 15px;
             font-size: 1.2em;

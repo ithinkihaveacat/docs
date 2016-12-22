@@ -1,0 +1,4 @@
+$view: /views/doc.html
+$path: /docs/guides/pwamp/{base}.html
+$localization:
+  path: /{locale}/docs/guides/pwamp/{base}.html

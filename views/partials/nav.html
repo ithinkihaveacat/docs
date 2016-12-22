@@ -38,12 +38,21 @@
   </li>
 </ul>
 {% else %}
+
+{% set guides = g.doc('/content/includes/guides.yaml', locale=doc.locale) %}
+
   <ul>
     {% for collection in g.collection('docs').collections() %}
     <li>
       <h2>{{_(collection.title)}}</h2>
       <ul>
-      {% for item in collection.docs(recursive=false, locale=doc.locale) %}
+      {% set sortedDocs = collection.docs(recursive=false, locale=doc.locale)|sort(attribute='category') %}
+      {% set oldCategory = "" %}
+      {% for item in sortedDocs %}
+        {% if (item.category or item.category == 0) and item.category != oldCategory %}
+         <li class="category">{{ _(guides.categories[item.category]) }}</li>
+         {% set oldCategory = item.category %}
+        {% endif %}
         {{render_item(item)}}
       {% endfor %}
       </ul>

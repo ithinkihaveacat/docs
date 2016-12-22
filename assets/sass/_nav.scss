@@ -35,6 +35,13 @@ nav {
           list-style: square;
           color: #fff;
 
+          &.category {
+            list-style: none;
+            font-weight: bold;
+            margin-left: -20px;
+            margin-top: 18px;
+          }
+
           &.current {
             color: rgba(255,255,255,0.6);
           }

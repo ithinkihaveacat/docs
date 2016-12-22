@@ -3,6 +3,7 @@ $title: Include Iframes
 $order: 2
 components:
   - iframe
+$category: 0
 ---
 [TOC]
 
