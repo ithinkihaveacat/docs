@@ -31,16 +31,17 @@ const subdomain = require('./middleware/subdomain.js');
 const WWW_PREFIX = 'www.';
 const HEALTH_CHECK = '/__health-check';
 const routers = {
-  'whoAmI': require('@lib/routers/whoAmI.js'),
-  'pages': require('@lib/routers/pages.js'),
-  'example': {
-    'sources': require('@lib/routers/example/sources.js'),
-    'embeds': require('@lib/routers/example/embeds.js'),
-    'api': require('@examples'),
+  whoAmI: require('@lib/routers/whoAmI.js'),
+  pages: require('@lib/routers/pages.js'),
+  packager: require('@lib/routers/packager.js'),
+  example: {
+    sources: require('@lib/routers/example/sources.js'),
+    embeds: require('@lib/routers/example/embeds.js'),
+    api: require('@examples'),
   },
-  'static': require('@lib/routers/static.js'),
-  'playground': require('../../playground/backend/'),
-  'boilerplate': require('../../boilerplate/backend/'),
+  static: require('@lib/routers/static.js'),
+  playground: require('../../playground/backend/'),
+  boilerplate: require('../../boilerplate/backend/'),
 };
 
 class Platform {
@@ -128,6 +129,7 @@ class Platform {
       routers.example.sources,
       routers.example.api,
     ])));
+    this.server.use(routers.packager);
     this.server.use('/documentation/examples', routers.example.api);
     this.server.use('/boilerplate', routers.boilerplate);
     this.server.use(routers.static);

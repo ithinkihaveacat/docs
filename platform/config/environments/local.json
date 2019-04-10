@@ -27,6 +27,11 @@
       "subdomain": "preview",
       "host": "localhost",
       "port": "8082"
+    },
+    "packager": {
+      "scheme": "http",
+      "host": "localhost",
+      "port": "8083"
     }
   }
 }
