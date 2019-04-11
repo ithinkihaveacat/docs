@@ -40,7 +40,10 @@ const proxyOptions = {
  */
 packagerRouter.use(async (request, response, next) => {
   if (request.path.startsWith('/amppkg/')) {
-    return proxy(request, response, proxyOptions.target + request.url, next);
+    return proxy(request, response, proxyOptions.target + request.url, next).catch(e => {
+      console.log("[packager] error: ", e.message);
+      next()
+    });
 
     //packagerProxy.web(request, response, proxyOptions, next);
     return;
@@ -57,7 +60,10 @@ packagerRouter.use(async (request, response, next) => {
   // hard code amp.dev as it has to match the cert
   url.searchParams.set('sign', 'https://amp.dev' + request.originalUrl);
   request.url = url.pathname + url.search;
-  return proxy(request, response, url.toString(), next);
+  return proxy(request, response, url.toString(), next).catch(e => {
+    console.log("[packager] error: ", e.message);
+    next();
+  });
   //packagerProxy.web(request, response, proxyOptions, next);
 });
 
