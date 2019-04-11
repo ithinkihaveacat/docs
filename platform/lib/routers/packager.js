@@ -41,7 +41,7 @@ const proxyOptions = {
 packagerRouter.use(async (request, response, next) => {
   if (request.path.startsWith('/amppkg/')) {
     return proxy(request, response, proxyOptions.target + request.url, next).catch(e => {
-      console.log("[packager] error: ", e.message);
+      console.log("[packager] proxy error: ", e.message);
       next()
     });
 
@@ -61,7 +61,7 @@ packagerRouter.use(async (request, response, next) => {
   url.searchParams.set('sign', 'https://amp.dev' + request.originalUrl);
   request.url = url.pathname + url.search;
   return proxy(request, response, url.toString(), next).catch(e => {
-    console.log("[packager] error: ", e.message);
+    console.log("[packager] proxy error: ", e.message);
     next();
   });
   //packagerProxy.web(request, response, proxyOptions, next);
