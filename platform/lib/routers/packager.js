@@ -42,7 +42,7 @@ packagerRouter.use(async (request, response, next) => {
   if (request.path.startsWith('/amppkg/')) {
     return proxy(request, response, proxyOptions.target + request.url, next).catch(e => {
       console.log("[packager] proxy error: ", e.message);
-      next()
+      next(e)
     });
 
     //packagerProxy.web(request, response, proxyOptions, next);
@@ -62,7 +62,7 @@ packagerRouter.use(async (request, response, next) => {
   request.url = url.pathname + url.search;
   return proxy(request, response, url.toString(), next).catch(e => {
     console.log("[packager] proxy error: ", e.message);
-    next();
+    next(e);
   });
   //packagerProxy.web(request, response, proxyOptions, next);
 });
